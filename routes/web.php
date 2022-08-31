@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +27,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@destroy');
+
+Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::get('contact', [HomeController::class, 'contact'])->name('contactus');
 
 require __DIR__.'/auth.php';
