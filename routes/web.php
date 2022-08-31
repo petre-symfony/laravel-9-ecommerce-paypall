@@ -31,4 +31,12 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('contact', [HomeController::class, 'contact'])->name('contactus');
 
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
+    Route::get('/', function() {
+        return view('admin.index');
+    })->name('admin.index');
+
+    Route::resource('product', ProductsController::class);
+});
+
 require __DIR__.'/auth.php';
