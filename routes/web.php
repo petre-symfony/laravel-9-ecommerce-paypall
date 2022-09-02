@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/', function() {
         return view('admin.index');
     })->name('admin.index');
+
+    Route::POST('admin/store', [AdminController::class, 'store']);
+    Route::get('/admin', [AdminController::class, 'index']);
 
     Route::resource('product', ProductsController::class);
 });
