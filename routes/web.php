@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,7 @@ Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('contact', [HomeController::class, 'contact'])->name('contactus');
 Route::get('store', [HomeController::class, 'shop'])->name('store');
 Route::get('product_details/{id}', [HomeController::class, 'product_details'])->name('product_details');
+Route::get('cart', [CartController::class, 'index'])->name('cart');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
     Route::get('/', function() {
