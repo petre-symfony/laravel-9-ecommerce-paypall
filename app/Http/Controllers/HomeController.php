@@ -27,4 +27,10 @@ class HomeController extends Controller {
     public function contact() {
         return view('front.contact');
     }
+
+    public function product_details($id) {
+        $products = Product::find($id);
+
+        return view('front.product_details', compact('products'));
+    }
 }

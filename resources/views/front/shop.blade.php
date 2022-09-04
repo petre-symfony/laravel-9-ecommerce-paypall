@@ -26,7 +26,7 @@
 
                             <div class="card-body">
                                 <button class="btn btn-primary">
-                                    <a href="{{ url('/product_details') }}<?php echo $product->id; ?>" class="add-to-cart">
+                                    <a href="{{ url('/product_details') }}/<?php echo $product->id; ?>" class="add-to-cart">
                                         View Product
                                     </a>
                                 </button>

@@ -33,6 +33,7 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('contact', [HomeController::class, 'contact'])->name('contactus');
 Route::get('store', [HomeController::class, 'shop'])->name('store');
+Route::get('product_details/{id}', [HomeController::class, 'product_details'])->name('product_details');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
     Route::get('/', function() {
