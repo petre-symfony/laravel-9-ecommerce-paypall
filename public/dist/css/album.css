@@ -23,6 +23,14 @@
   max-width: 40rem;
 }
 
+.album .btn a{
+  color: #ffffff;
+}
+
+.nav-item a.active {
+  color: #ffffff;
+}
+
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;

@@ -32,6 +32,7 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthenticatedSessionController@
 
 Route::get('home', [HomeController::class, 'index'])->name('home');
 Route::get('contact', [HomeController::class, 'contact'])->name('contactus');
+Route::get('store', [HomeController::class, 'shop'])->name('store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
     Route::get('/', function() {

@@ -12,7 +12,7 @@
                 <a class="nav-link" href="{{ route('home') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/shop') }}">Shop</a>
+                <a class="nav-link" href="{{ route('store') }}">Shop</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('contactus') }}">Contact Us</a>
