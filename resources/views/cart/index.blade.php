@@ -98,7 +98,10 @@
                                         <td class="cart_delete">
                                             <button class="btn btn-primary">
                                                 <a class="cart_quantity_delete" style="background-color:red"
-                                                   href=""><i class="fa fa-times">X</i></a>
+                                                   href="{{ route('remove_item_from_cart', ['id' => $cartItem->rowId]) }}"
+                                                >
+                                                   <i class="fa fa-times">X</i>
+                                                </a>
                                             </button>
                                         </td>
                                     </tr>
@@ -175,10 +178,10 @@
                     <div class="col-sm-6">
                         <div class="total_area">
                             <ul>
-                                <li>Cart Sub Total <span></span></li>
-                                <li>Eco Tax <span></span></li>
+                                <li>Cart Sub Total <span>${{ Cart::subtotal() }}</span></li>
+                                <li>Eco Tax <span>${{ Cart::tax() }}</span></li>
                                 <li>Shipping Cost <span>Free</span></li>
-                                <li>Total <span></span></li>
+                                <li>Total <span>${{ Cart::total() }}</span></li>
                             </ul>
                             <a class="btn btn-default update" href="">Update</a>
                             <a class="btn btn-default check_out" href="{{route('home')}}/checkout">Check Out</a>

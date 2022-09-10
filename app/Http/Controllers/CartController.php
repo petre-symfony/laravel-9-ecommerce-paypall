@@ -16,4 +16,10 @@ class CartController extends Controller{
         $product = Product::find($id);
         Cart::add($id, $product->pro_name, 1, $product->pro_price);
     }
+
+    public function destroy($id) {
+        Cart::remove($id);
+        // echo $id;
+        return back();
+    }
 }
