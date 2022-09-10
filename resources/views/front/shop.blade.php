@@ -26,12 +26,12 @@
 
                             <div class="card-body">
                                 <button class="btn btn-primary">
-                                    <a href="{{ url('/product_details') }}/<?php echo $product->id; ?>" class="add-to-cart">
+                                    <a href="{{ route('product_details', ['id' => $product->id]) }}" class="add-to-cart">
                                         View Product
                                     </a>
                                 </button>
                                 <button type="button" class="btn btn-primary">
-                                    <a href="{{ url('/cart/addItem') }}<?php echo $product->id; ?>" class="add-to-cart">
+                                    <a href="{{ route('add_item_to_cart', ['id' => $product->id]) }}" class="add-to-cart">
                                         Add To Cart
                                         <i class="fa fa-shopping-cart"></i>
                                     </a>

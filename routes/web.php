@@ -36,6 +36,8 @@ Route::get('contact', [HomeController::class, 'contact'])->name('contactus');
 Route::get('store', [HomeController::class, 'shop'])->name('store');
 Route::get('product_details/{id}', [HomeController::class, 'product_details'])->name('product_details');
 Route::get('cart', [CartController::class, 'index'])->name('cart');
+Route::get('add_item_to_cart/{id}', [CartController::class, 'addItem'])->name('add_item_to_cart');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
     Route::get('/', function() {
