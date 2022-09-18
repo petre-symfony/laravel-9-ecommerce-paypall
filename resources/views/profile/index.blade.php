@@ -21,10 +21,10 @@
                                     <a href="{{ route('orders') }}" class="btn btn-success">My Orders</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-success">My Address</a>
+                                    <a href="{{ route('address') }}" class="btn btn-success">My Address</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-success">Change Password</a>
+                                    <a href="{{ route('password') }}" class="btn btn-success">Change Password</a>
                                 </td>
                             </tr>
                         </table>
