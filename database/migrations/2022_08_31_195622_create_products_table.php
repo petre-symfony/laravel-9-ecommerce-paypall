@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->string('pro_code');
             $table->string('pro_price');
             $table->string('pro_info');
+            $table->integer('category_id');
             $table->string('image')->nullable();
             $table->string('spl_price');
             $table->timestamps();

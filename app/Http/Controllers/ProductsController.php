@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class ProductsController extends Controller {
     }
 
     public function create() {
-        return view('admin.product.create');
+        $categories = Category::pluck('name', 'id');
+        return view('admin.product.create', compact('categories'));
     }
 
     public function store(Request $request) {
@@ -34,12 +36,13 @@ class ProductsController extends Controller {
             $formInput['image'] = $imageName;
         }
 
+        $categories = Category::all();
         Product::create($formInput);
         return redirect()->back();
     }
 
     public function show($id) {
-       $product = Product::findOrFail($id);
+       $product = Product::find($id);
        return view('product.show', compact($product));
     }
 }

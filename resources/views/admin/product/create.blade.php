@@ -85,6 +85,14 @@
                             </div>
 
                             <div class="form-group">
+                                {{ Form::label('category_id', 'Categories') }}
+                                {{ Form::select('category_id', $categories, null, [
+                                  'class' => 'form-control',
+                                  'placeholder' => 'Select category'
+                                ]) }}
+                            </div>
+
+                            <div class="form-group">
                                 {{ Form::label('image', 'Image') }}
                                 {{ Form::file('image', null, array(
                                     'class' => 'form-control'

@@ -8,7 +8,7 @@
                 @forelse($categories as $category)
                     <li class="active">
                         <a href="{{ route('category.show', [
-	                      'id' => $category->id
+	                      'category' => $category->id
                         ]) }}">{{ $category->name }}</a>
                     </li>
                 @empty
@@ -16,7 +16,7 @@
                 @endforelse
             @endif
         </ul>
-    </div>
+
     {!! Form::open(['route' => 'category.store', 'method' => 'post']) !!}
         <div class="form-group">
             {{ Form::label('name', 'Title') }}
@@ -26,7 +26,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
     {!! Form::close() !!}
-
+    </div>
     {{--products--}}
     @if(isset($products))
         <h3>Products</h3>
