@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('thankyou', function() {
         return view('profile.thankyou');
     })->name('thankyou');
+
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile');
+    Route::get('orders', [ProfileController::class, 'orders'])->name('orders');
 });
 
 require __DIR__.'/auth.php';

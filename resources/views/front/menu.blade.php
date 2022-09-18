@@ -42,6 +42,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">{{ Auth::user()->name }}</a>
                     <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a>
+                    <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                 </div>
                 <?php } else { ?>
                 <div class="dropdown-menu">
