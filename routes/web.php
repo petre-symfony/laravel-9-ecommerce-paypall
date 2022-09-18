@@ -63,6 +63,10 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('orders', [ProfileController::class, 'orders'])->name('orders');
+    Route::get('address', [ProfileController::class, 'address'])->name('address');
+    Route::post('update_address', [ProfileController::class, 'updateAddress'])->name('update_address');
+    Route::get('password', [ProfileController::class, 'password'])->name('password');
+    Route::post('update_password', [ProfileController::class, 'updatePassword'])->name('update_password');
 });
 
 require __DIR__.'/auth.php';

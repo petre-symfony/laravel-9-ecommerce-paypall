@@ -33,4 +33,20 @@ class ProfileController extends Controller {
 
         return view('profile.orders', compact('orders'));
     }
+
+    public function password() {
+        return view('profile.updatePassword');
+    }
+
+    public function updatePassword() {
+        return view('profile.updatePassword');
+    }
+
+    public function address() {
+        return view('profile.address');
+    }
+
+    public function updateAddress(Request $request) {
+        dd($request->fullname);
+    }
 }

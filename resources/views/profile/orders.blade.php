@@ -27,7 +27,7 @@
                         <li>Change Password</li>
                     </ul>
                 </div>
-                
+
                 <div class="col-md-8">
                     <h3>
                         <span style="color: green;">{{ ucwords(Auth()->user()->getAuthIdentifierName()) }}</span>,

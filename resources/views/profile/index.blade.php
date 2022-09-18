@@ -9,19 +9,6 @@
 
     <section id="cart_items">
         <div class="container">
-            <div class="col-md-12">
-                <div class="col-md-4 well well-sm">
-                    <nav class="nav flex-column">
-                        <a href="{{ route('home') }}" class="nav-link">Home</a>
-                        <a href="{{ route('profile') }}" class="nav-link">My Profile</a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="cart_items">
-        <div class="container">
             <div class="row">
                 @include('profile.menu')
 

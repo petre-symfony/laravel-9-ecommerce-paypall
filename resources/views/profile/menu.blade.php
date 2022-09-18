@@ -5,6 +5,6 @@
         <a href="{{ route('orders') }}" class="nav-link">My Orders</a>
         <a href="{{ route('address') }}" class="nav-link">My Address</a>
 
-        <a href="" class="nav-link">Change Password</a>
+        <a href="{{ route('password') }}" class="nav-link">Change Password</a>
     </nav>
 </div>

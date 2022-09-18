@@ -9,12 +9,6 @@
 
     <section id="cart_items">
         <div class="container">
-            <div class="breadcrumbs">
-                <ul class="breadcrumb">
-                    <li><a href="{{ route('profile') }}">Profile</a></li>
-                    <li class="active">My Address</li>
-                </ul>
-            </div>
 
             <div class="row">
                 @include('profile.menu')
@@ -27,6 +21,10 @@
 
                     <div class="container">
 
+                        {!! Form::open(['url' => route('update_address'), 'method' => 'post']) !!}
+                            <input type="text" name="fullname">
+                            <input type="submit" value="Update" class="btn btn-primary">
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
