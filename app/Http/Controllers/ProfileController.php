@@ -43,10 +43,29 @@ class ProfileController extends Controller {
     }
 
     public function address() {
-        return view('profile.address');
+        $user_id = Auth()->user()->id;
+        $address_data = DB::table('address')
+            ->where('user_id', '=', $user_id)
+            ->orderBy('id', 'DESC')
+            ->get()
+        ;
+        return view('profile.address', compact('address_data'));
     }
 
     public function updateAddress(Request $request) {
-        dd($request->fullname);
+        $this->validate($request, [
+            'fullname' => 'required|min:5|max:35',
+            'pincode' => 'required|numeric',
+            'city' => 'required|min:2|max:25',
+            'state' => 'required|min:5|max:35',
+            'country' => 'required'
+        ]);
+
+        $user_id = Auth()->user()->id;
+        DB::table('address')
+            ->where('user_id', '=', $user_id)
+            ->update($request->except('_token'))
+        ;
+        return back()->with('msg', 'Your address has been updated');
     }
 }
