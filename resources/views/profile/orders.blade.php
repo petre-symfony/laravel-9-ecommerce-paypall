@@ -17,6 +17,17 @@
             </div>
 
             <div class="row">
+                <div class="col-md-4 well well-sm">
+                    <ul class="nav navbar">
+                        <h3>Quick Links</h3>
+                        <li>My Profile</li>
+                        <li>My Orders</li>
+                        <li>My Address</li>
+
+                        <li>Change Password</li>
+                    </ul>
+                </div>
+                
                 <div class="col-md-8">
                     <h3>
                         <span style="color: green;">{{ ucwords(Auth()->user()->getAuthIdentifierName()) }}</span>,
