@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-    <div class="navbar">
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
         <a href="" class="navbar-brand">Categories</a>
 
         <ul class="nav navbar-nav">
@@ -26,7 +26,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
     {!! Form::close() !!}
-    </div>
+    </main>
     {{--products--}}
     @if(isset($products))
         <h3>Products</h3>
