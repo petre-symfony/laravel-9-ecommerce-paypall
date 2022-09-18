@@ -10,6 +10,12 @@
     <section id="cart_items">
         <div class="container">
 
+            @if(session('msg'))
+                <div class="alert alert-info">
+                    {{ session('msg') }}
+                </div>
+            @endif
+
             <div class="row">
                 @include('profile.menu')
 
