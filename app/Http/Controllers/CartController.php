@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 
 class CartController extends Controller{
     public function index() {
@@ -15,11 +16,17 @@ class CartController extends Controller{
         echo $id;
         $product = Product::find($id);
         Cart::add($id, $product->pro_name, 1, $product->pro_price);
+        return back();
     }
 
     public function destroy($id) {
         Cart::remove($id);
         // echo $id;
+        return back();
+    }
+
+    public function update(Request $request, $id) {
+        Cart::update($id, $request->qty);
         return back();
     }
 }

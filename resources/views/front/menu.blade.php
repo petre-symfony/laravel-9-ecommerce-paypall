@@ -31,7 +31,7 @@
         </li>
         <li class="list-inline-item">
             <a href="{{ route('cart') }}">
-                <i class="fa fa-shopping-cart"></i>View
+                <i class="fa fa-shopping-cart"></i>View Cart
                 ({{ Cart::count() }}) {{Cart::total()}}
             </a>
         </li>
