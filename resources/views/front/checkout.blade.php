@@ -42,68 +42,55 @@
                     </ul>
                     <div class="tab-content">
                         <div id="address" class="active tab-block">
-                            <form action="#">
+                            <h1>Shopper Information</h1>
+                            <form action="{{ route('checkout_validate') }}" method="POST">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                <div class="row">
                                    <div class="form-group col-md-6">
-                                       <label for="firstName" class="form-label">First Name</label>
-                                       <input type="text" id="firstName" name="first-name" class="form-control"
-                                          placeholder="Enter your first name"
+                                       <label for="fullname" class="form-label">Display Name</label>
+                                       <input type="text" name="fullname" class="form-control"
+                                          value="{{ old('fullname') }}" placeholder="Display Name"
                                        >
+                                       <br />
+                                       <span style="color:red;">{{ $errors->first('fullname') }}</span>
                                    </div>
                                    <div class="form-group col-md-6">
-                                       <label for="lastName" class="form-label">Last Name</label>
-                                       <input type="text" id="lastName" name="last-name" class="form-control"
-                                          placeholder="Enter your last name"
+                                       <label for="state" class="form-label">State Name</label>
+                                       <input type="text" name="state" class="form-control"
+                                          value="{{ old('state') }}" placeholder="State"
                                        >
+                                       <br />
+                                       <span style="color:red;">{{ $errors->first('state') }}</span>
                                    </div>
                                    <div class="form-group col-md-6">
-                                       <label for="email" class="form-label">Email Address</label>
-                                       <input type="text" id="email" name="email" class="form-control"
-                                          placeholder="Enter your email address"
+                                       <label for="pincode" class="form-label">Pincode</label>
+                                       <input type="text" name="pincode" class="form-control"
+                                          value="{{ old('pincode') }}" placeholder="Pincode"
                                        >
+                                       <br />
+                                       <span style="color:red;">{{ $errors->first('pincode') }}</span>
                                    </div>
                                    <div class="form-group col-md-6">
-                                       <label for="street" class="form-label">Street</label>
-                                       <input type="text" id="street" name="address" class="form-control"
-                                          placeholder="Enter your street name"
-                                       >
-                                   </div>
-                                   <div class="form-group col-md-3">
                                        <label for="city" class="form-label">City</label>
-                                       <input type="text" id="city" name="city" class="form-control"
-                                          placeholder="Your city"
+                                       <input type="text" name="city" class="form-control"
+                                          value="{{ old('city') }}" placeholder="City"
                                        >
+                                       <br />
+                                       <span style="color:red;">{{ $errors->first('city') }}</span>
                                    </div>
-                                   <div class="form-group col-md-3">
-                                       <label for="zip" class="form-label">Zip</label>
-                                       <input type="text" id="zip" name="zip" class="form-control"
-                                          placeholder="ZIP code"
-                                       >
-                                   </div>
-                                   <div class="form-group col-md-3">
-                                       <label for="state" class="form-label">State</label>
-                                       <input type="text" id="state" name="state" class="form-control"
-                                          placeholder="Your state"
-                                       >
-                                   </div>
-                                   <div class="form-group col-md-3">
-                                       <label for="country" class="form-label">Country</label>
-                                       <input type="text" id="country" name="country" class="form-control"
-                                          placeholder="Your country"
-                                       >
-                                   </div>
-                                   <div class="form-group col-md-6">
-                                       <label for="phone-number" class="form-label">Phone Number</label>
-                                       <input type="tel" id="phone-number" name="phone-number" class="form-control"
-                                          placeholder="Your phone number"
-                                       >
-                                   </div>
-                                   <div class="form-group col-md-6">
-                                       <label for="company" class="form-label">Company</label>
-                                       <input type="text" id="company" name="company" class="form-control"
-                                          placeholder="Your company name"
-                                       >
-                                   </div>
+                                   <select name="country" class="form-control">
+                                       <option value="{{ old('country') }}" selected="selected">Select Country</option>
+                                       <option value="United States">United States</option>
+                                       <option value="Bangladesh">Bangladesh</option>
+                                       <option value="UK">UK</option>
+                                       <option value="India">India</option>
+                                       <option value="Pakistan">Pakistan</option>
+                                       <option value="Ucraine">Ucraine</option>
+                                       <option value="Canada">Canada</option>
+                                       <option value="Dubai">Dubai</option>
+                                   </select>
+                                   <span style="color: red;">{{ $errors->first('country') }}</span>
+                                   <input type="submit" value="Continue">
                                </div>
                             </form>
                             <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">

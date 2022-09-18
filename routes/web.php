@@ -54,4 +54,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
 Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
 
+Route::post('checkout_validate', [CheckoutController::class, 'checkoutValidate'])->name('checkout_validate');
+
 require __DIR__.'/auth.php';
