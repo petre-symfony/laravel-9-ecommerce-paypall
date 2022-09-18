@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class CheckoutController extends Controller {
     public function index() {
         if (Auth::check()) {
-            return view('front.checkout');
+            $cartItems = Cart::content();
+            return view('front.checkout', compact('cartItems'));
         }
 
         return redirect('home');
@@ -34,6 +35,7 @@ class CheckoutController extends Controller {
         $address->country = $request->country;
         $address->pincode = $request->pincode;
         $address->user_id = $userId;
+        $address->payment_type = $request->pay;
         $address->save();
 
         Order::createOrder();

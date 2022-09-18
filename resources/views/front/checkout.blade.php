@@ -20,6 +20,91 @@
         </div>
     </section>
 
+    <div class="table-responsive cart_info">
+        <table class="table table-condensed">
+            <thead>
+                <tr class="cart-menu">
+                    <td class="image">Item</td>
+                    <td class="description">Description</td>
+                    <td class="price">Price</td>
+                    <td class="quantity">Quantity</td>
+                    <td class="total">Total</td>
+                </tr>
+                <?php $count = 1; ?>
+                @foreach($cartItems as $cartItem)
+                <tbody>
+                    <tr>
+                        <td class="cart_product">
+                            <a href="{{ route('product_details', ['id' => $cartItem->id]) }}">
+                                <img src="{{ $cartItem->options->img }}" alt="" width="200px">
+                            </a>
+                        </td>
+
+                        {!! Form::open([
+                          'url' => route('update_cart', [
+                            'id' => $cartItem->rowId
+                          ]),
+                          'method' => 'PUT'
+                        ]) !!}
+
+                            <td class="cart_description">
+                                <h4>
+                                    <a
+                                        href="{{ route('product_details', [
+                                                              'id' => $cartItem->id
+                                                            ]) }}"
+                                        style="color: blue;"
+                                    >{{ $cartItem->name }}</a>
+                                </h4>
+                                <p>Product ID: {{ $cartItem->id }}</p>
+                                <p>Only {{ $cartItem->options->stock }} left</p>
+                            </td>
+
+                            <td class="cart_price">
+                                <p>${{ $cartItem->price }}</p>
+                            </td>
+
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <input type="hidden" id="rowId<?php echo $count?>" value="{{ $cartItem->rowId }}">
+                                    <input type="hidden" id="proId<?php echo $count?>" value="{{ $cartItem->id }}">
+
+                                    <input type="number" size="2"
+                                           value="{{ $cartItem->qty }}"
+                                           name="qty" id="upCart<?php echo $count?>"
+                                           autocomplete="off"
+                                           style="text-align: center; max-width: 50px"
+                                           min="1" max="30"
+                                    >
+
+                                    <input
+                                        type="submit"
+                                        class="btn btn-primary"
+                                        value="Update"
+                                        style="margin: 5px"
+                                    >
+                                </div>
+                            </td>
+                        {!! Form::close() !!}
+
+                        <td class="cart_total">
+                            <p class="cart_total_price">${{ $cartItem->subtotal }}</p>
+                        </td>
+
+                        <td class="cart_delete">
+                            <a href="{{ route('remove_item_from_cart', ['id' => $cartItem->rowId]) }}"
+                               class="cart_quantity_delete"
+                               style="background-color: red"
+                            ><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    <?php $count++; ?>
+                </tbody>
+                @endforeach
+            </thead>
+        </table>
+    </div>
+
     <!-- Checkout Forms -->
     <?php //form start here ?>
     <section class="checkout">
@@ -90,7 +175,16 @@
                                        <option value="Dubai">Dubai</option>
                                    </select>
                                    <span style="color: red;">{{ $errors->first('country') }}</span>
-                                   <input type="submit" value="Continue">
+
+                                   <span>
+                                       <input type="radio" name="pay" value="COD" checked="checked">COD
+                                   </span>
+
+                                   <span>
+                                       <input type="radio" name="pay" value="paypal" checked="checked">PAYPAL
+                                   </span>
+
+                                   <input type="submit" value="Continue" class="btn btn-primary">
                                </div>
                             </form>
                             <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">
@@ -112,16 +206,16 @@
                         <p>Shipping and additional costs are calculated based on values you have entered</p>
                         <ul class="menu-list list-unstyled">
                             <li class="d-flex justify-content-between">
-                                <span>Order Subtotal</span><strong>$390.00</strong>
+                                <span>Order Subtotal</span><strong>${{ Cart::subtotal() }}</strong>
                             </li>
                             <li class="d-flex justify-content-between">
                                 <span>Shipping and handling</span><strong>$10.00</strong>
                             </li>
                             <li class="d-flex justify-content-between">
-                                <span>Tax</span><strong>$0.00</strong>
+                                <span>Tax</span><strong>${{ Cart::tax() }}</strong>
                             </li>
                             <li class="d-flex justify-content-between">
-                                <span>Total</span><strong class="text-primary price-total">$400.00</strong>
+                                <span>Total</span><strong class="text-primary price-total">${{ Cart::total() }}</strong>
                             </li>
                         </ul>
                     </div>
