@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/admin', [AdminController::class, 'index']);
 
     Route::resource('product', ProductsController::class);
+    Route::resource('category', CategoriesController::class);
 });
 
 Route::group(['middleware' => 'auth'], function() {

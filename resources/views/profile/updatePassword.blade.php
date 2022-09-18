@@ -15,7 +15,7 @@
                     {{ session('msg') }}
                 </div>
             @endif
-            
+
             <div class="row">
                 @include('profile.menu')
 
