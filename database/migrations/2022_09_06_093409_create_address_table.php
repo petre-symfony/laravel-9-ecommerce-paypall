@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->integer('user_id');
             $table->string('country');
             $table->string('pincode');
+            $table->string('payment_type');
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\Order;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,6 +36,10 @@ class CheckoutController extends Controller {
         $address->user_id = $userId;
         $address->save();
 
-        dd('done');
+        Order::createOrder();
+
+        Cart::destroy();
+
+        return redirect('thankyou');
     }
 }

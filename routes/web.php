@@ -52,8 +52,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::resource('product', ProductsController::class);
 });
 
-Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
+    Route::post('checkout_validate', [CheckoutController::class, 'checkoutValidate'])->name('checkout_validate');
 
-Route::post('checkout_validate', [CheckoutController::class, 'checkoutValidate'])->name('checkout_validate');
+    Route::get('thankyou', function() {
+        return view('profile.thankyou');
+    })->name('thankyou');
+});
 
 require __DIR__.'/auth.php';
