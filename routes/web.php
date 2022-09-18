@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,5 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     Route::resource('product', ProductsController::class);
 });
+
+Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
 
 require __DIR__.'/auth.php';

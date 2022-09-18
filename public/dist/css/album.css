@@ -44,3 +44,11 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+
+a.btn.update {
+    color: #007bff;
+}
+
+a.btn.check_out {
+    color: #007bff;
+}
