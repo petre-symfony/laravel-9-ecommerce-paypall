@@ -14,6 +14,25 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('store') }}">Shop</a>
             </li>
+            <li class="nav-item dropdown">
+                <a
+                    href="" id="navbarDropdownMenuLink" class="nav-link"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                >
+                    Categories<i class="fa fa-angle-down"></i>
+                </a>
+                <ul aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu">
+                    <?php $cats = \Illuminate\Support\Facades\DB::table('categories')->get(); ?>
+                    @foreach ($cats as $cat)
+                        <li>
+                            <a
+                                href="{{ url('/') }}/products/{{ $cat->name }}"
+                                class="dropdown-item"
+                            >{{ ucwords($cat->name) }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('contactus') }}">Contact Us</a>
             </li>
