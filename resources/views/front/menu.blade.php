@@ -19,16 +19,18 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                <?php if (Auth::check()) { ?>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">{{ Auth::user()->name }}</a>
+                    <a class="dropdown-item" href="{{ url('/logout') }}">Logout</a>
                 </div>
+                <?php } else { ?>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ url('/login') }}">Login</a>
+                </div>
+                <?php } ?>
             </li>
         </ul>
-        <li class="list-inline-item">
-            <a href="{{ url('/login') }}">Login</a>
-        </li>
         <li class="list-inline-item">
             <a href="{{ route('cart') }}">
                 <i class="fa fa-shopping-cart"></i>View Cart
