@@ -22,9 +22,10 @@
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
                             <img src="{{ URL::asset('images/' . $product->image) }}" class="card-image" alt="Card image cap">
-                            <p class="card-text">{{ $product->pro_name }}</p>
-
                             <div class="card-body">
+                                <p class="card-text">{{ $product->pro_name }}</p>
+
+
                                 <button class="btn btn-primary">
                                     <a href="{{ route('product_details', ['id' => $product->id]) }}" class="add-to-cart">
                                         View Product
