@@ -187,6 +187,7 @@
                                    <input type="submit" value="Continue" class="btn btn-primary">
                                </div>
                             </form>
+                            @include('front.paypal')
                             <div class="CTAs d-flex justify-content-between flex-column flex-lg-row">
                                 <a href="cart.html" class="btn btn-template-outlined wide prev">
                                     <i class="fa fa-angle-left"></i>
