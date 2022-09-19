@@ -16,5 +16,8 @@
     <input type="hidden" name="tax_{{ $count }}" value="0.12">
     @endforeach
 
-<input type="submit" value="PayPal" formaction="https://www.sandbox.paypal.com/cgi-bin/webscr">
+<input name="submit" id="paypalbtn" type="image" value="PayPal"
+    src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/blue-rect-paypalcheckout-34px.png"
+    formaction="https://www.sandbox.paypal.com/cgi-bin/webscr"
+>
 
