@@ -15,7 +15,10 @@ class CartController extends Controller{
     public function addItem($id) {
         echo $id;
         $product = Product::find($id);
-        Cart::add($id, $product->pro_name, 1, $product->pro_price);
+        Cart::add($id, $product->pro_name, 1, $product->pro_price, [
+            'img' => $product->image,
+            'stock' => $product->stock
+        ]);
         return back();
     }
 

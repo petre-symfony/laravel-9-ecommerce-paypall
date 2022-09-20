@@ -25,6 +25,13 @@
                     </div>
 
                     <div class="form-group">
+                        {{ Form::label('stock', 'Stock') }}
+                        {{ Form::text('stock', null, array(
+                            'class' => 'form-control'
+                        )) }}
+                    </div>
+
+                    <div class="form-group">
                         {{ Form::label('price', 'Price') }}
                         {{ Form::text('pro_price', null, array(
                             'class' => 'form-control'

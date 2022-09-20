@@ -26,6 +26,7 @@ class ProductsController extends Controller {
             'pro_price' => 'required',
             'pro_info' => 'required',
             'spl_price' => 'required',
+            'stock' => 'required',
             'image' => 'image|mimes:png,jpg,jpeg|max:10000'
         ]);
 

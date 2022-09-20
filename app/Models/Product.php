@@ -17,7 +17,8 @@ class Product extends Model {
         'image',
         'pro_info',
         'spl_price',
-        'category_id'
+        'category_id',
+        'stock'
     ];
 
     public function category() {
