@@ -36,7 +36,7 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{ asset('dist/css/album.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/custom.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/carousel.css') }}">
+
 </head>
 <body>
 

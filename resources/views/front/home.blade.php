@@ -2,7 +2,9 @@
 @section('content')
 
 <main role="main">
-
+    <head>
+        <link rel="stylesheet" href="{{ asset('dist/css/carousel.css') }}">
+    </head>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

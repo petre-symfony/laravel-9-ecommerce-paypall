@@ -29,7 +29,19 @@ class CartController extends Controller{
     }
 
     public function update(Request $request, $id) {
+        $qty = $request->qty;
+        $proId = $request->proId;
+        $products = Product::find($proId);
+        $stock = $products->stock;
+
+        if ($qty < $stock){
+            $msg = 'Cart is updated';
+            Cart::update($id, $request->qty);
+            return back()->with('status', $msg);
+        } else {
+            $msg = 'Please, check your quantity is more than product stock';
+        }
         Cart::update($id, $request->qty);
-        return back();
+        return back()->with('error');
     }
 }

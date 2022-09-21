@@ -27,9 +27,11 @@
                                     <div class="product-details">
                                         <h2 class="product-title">
                                             <h2><?php echo ucwords($products->pro_name)?></h2>
+                                            <h5>{{ $products->pro_info }}</h5>
+                                            <h2>${{ $products->spl_price }}</h2>
                                         </h2>
 
-
+                                        <p><b>Availability: {{ $products->stock }} In Stock</b></p>
                                         <a href="{{
                                           route('add_item_to_cart', [
                                             'id' => $products->id
