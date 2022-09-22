@@ -36,11 +36,26 @@
                                           route('add_item_to_cart', [
                                             'id' => $products->id
                                           ]) }}"
-                                           class="add-to-cart btn btn-primary btn-sm"
+                                          class="add-to-cart btn btn-primary btn-sm"
                                         >
                                             Add to Cart<i class="fa fa-shopping-cart"></i>
                                         </a>
+                                        <?php
+                                            $wishData = DB::table('wishlist')
+                                                ->rightJoin('products', 'wishlist.pro_id', '=', 'products.id')
+                                                ->where('wishlist.pro_id', '=', $products->id)->get();
 
+                                            $count = \App\Models\Wishlist::where(['pro_id' => $products->id]).count()
+                                        ?>
+
+                                        <?php if($count == "0") {?>
+                                        {!! Form::open(['route' => 'addToWishlist', 'method' => 'post']) !!}
+                                            <input type="hidden" value="{{ $products->id }}" name="pro_id">
+                                            <input type="submit" value="Add to Wishlist" class="btn btn-primary">
+                                        {!! Form::close() !!}
+                                        <?php } else {?>
+                                            <h3 style="color:green">Already added to wishlist</h3>
+                                        <?php }?>
                                     </div>
                                 </div>
                             </div>
