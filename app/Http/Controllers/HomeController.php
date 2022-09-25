@@ -52,4 +52,18 @@ class HomeController extends Controller {
 
         return view('front.product_details', compact('products'));
     }
+
+    public function view_wishlist(){
+        $products = DB::table('wishlist')
+            ->leftJoin('products', 'wishlist.pro_id', '=', 'products.id')
+            ->get();
+
+        return view('front.wishlist', compact('products'));
+    }
+
+    public function remove_wishlist($id){
+        $product = Product::find($id);
+
+        return view('front.wishlist');
+    }
 }

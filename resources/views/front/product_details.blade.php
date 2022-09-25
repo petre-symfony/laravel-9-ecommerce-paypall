@@ -55,7 +55,7 @@
                                             <input type="submit" value="Add to Wishlist" class="btn btn-primary">
                                         {!! Form::close() !!}
                                         <?php } else {?>
-                                            <h3 style="color:green">Already added to wishlist <a href="{{ route('wishlist') }}">wishlist</a></h3>
+                                            <h3 style="color:green">Already added to wishlist <br/><a href="{{ route('wishlist') }}">wishlist</a></h3>
                                         <?php }?>
                                     </div>
                                 </div>

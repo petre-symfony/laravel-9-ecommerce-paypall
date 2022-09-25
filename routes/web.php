@@ -71,7 +71,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('update_password', [ProfileController::class, 'updatePassword'])->name('update_password');
 
     Route::post("addToWhishlist", [HomeController::class, 'wishlist'])->name('addToWishlist');
-    Route::get('/wishlist', [HomeController::class, 'viewWishlist'])->name('wishlist');
+    Route::get('/wishlist', [HomeController::class, 'view_wishlist'])->name('wishlist');
+    Route::delete("/removeWishlist/{id}", [HomeController::class, 'remove_wishlist'])->name('removeWishlist');
 });
 
 require __DIR__.'/auth.php';
