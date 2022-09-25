@@ -34,6 +34,14 @@
                 </ul>
             </li>
             <li class="nav-item">
+                <a href="{{ route('wishlist') }}">
+                    <i class="fa-solid fa-star"></i>Wishlist
+                    <span style="color: green; font-weight: bold;">
+                        {{ \App\Models\Wishlist::count() }}
+                    </span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('contactus') }}">Contact Us</a>
             </li>
             <li class="nav-item dropdown">
