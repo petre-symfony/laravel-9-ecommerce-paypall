@@ -8,6 +8,7 @@ use App\Models\Wishlist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Recommends;
 
 class HomeController extends Controller {
     /**
@@ -36,6 +37,12 @@ class HomeController extends Controller {
     }
 
     public function product_details($id) {
+        if(Auth::check()){
+            $recommend = new Recommends();
+            $recommend->uid = Auth::user()->id;
+            $recommend->pro_id = $id;
+            $recommend->save();
+        }
         $products = DB::table('products')->where('id', $id)->get();
 
         return view('front.product_details', compact('products'));
