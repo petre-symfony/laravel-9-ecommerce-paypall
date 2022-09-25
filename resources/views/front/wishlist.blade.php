@@ -175,7 +175,7 @@
                                             <a href="{{ route('product_details',['id' => $product->id]) }}">
                                                 <img src="{{ URL::asset('images/' . $product->image) }}" alt="">
                                             </a>
-                                            <h2><?php echo $product->pro_price; ?></h2>
+                                            <h2>$<?php echo $product->pro_price; ?></h2>
                                             <p>
                                                 <a href="{{ route('product_details',['id' => $product->id]) }}">
                                                     <?php echo $product->pro_name ?>
@@ -193,7 +193,7 @@
                                         <a href="{{ route('product_details',['id' => $product->id]) }}">
                                             <div class="product-overlay">
                                                 <div class="overlay-content">
-                                                    <h2><?php echo $product->pro_price ?></h2>
+                                                    <h2>$<?php echo $product->pro_price ?></h2>
                                                     <p><?php echo $product->pro_name ?></p>
                                                     <a
                                                         href="{{ route('add_item_to_cart',
@@ -221,6 +221,13 @@
                                             </li>
                                         </ul>
                                     </div>
+
+                                    <a href="{{ route('removeWishlist', ['id' => $product->id]) }}"
+                                       style="color:red;"
+                                       class="btn btn-default btn-block"
+                                    >
+                                        <i class="fa fa-minus-square">Remove from wishlist</i>
+                                    </a>
                                 </div>
                             </div>
                             @endforeach
