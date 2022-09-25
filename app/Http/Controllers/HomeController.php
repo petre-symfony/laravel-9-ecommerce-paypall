@@ -62,8 +62,8 @@ class HomeController extends Controller {
     }
 
     public function remove_wishlist($id){
-        $product = Product::find($id);
+        DB::table('wishlist')->where('pro_id', '=', $id)->delete();
 
-        return view('front.wishlist');
+        return back()->with('msg', 'Item Removed from Wishlist');
     }
 }
