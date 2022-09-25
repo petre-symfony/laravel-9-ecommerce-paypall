@@ -36,7 +36,7 @@ class HomeController extends Controller {
     }
 
     public function product_details($id) {
-        $products = Product::find($id);
+        $products = DB::table('products')->where('id', $id)->get();
 
         return view('front.product_details', compact('products'));
     }
