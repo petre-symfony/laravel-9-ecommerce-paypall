@@ -114,4 +114,6 @@
     </div>
 
 </main>
+
+@include('front.recommends')
 @endsection
