@@ -52,4 +52,25 @@ class ProductsController extends Controller {
        $product = Product::find($id);
        return view('product.show', compact($product));
     }
+
+    public function editProducts($id, Request $request){
+        $pro_id = $request->id;
+        $pro_name = $request->pro_name;
+        $category_id = $request->category_id;
+        $pro_code = $request->pro_code;
+        $pro_price = $request->pro_price;
+        $pro_info = $request->pro_info;
+        $spl_price = $request->spl_price;
+
+        DB::table('products')->where('id', $pro_id)->update([
+            'pro_name' => $pro_name,
+            'category_id' => $category_id,
+            'pro_code' => $pro_code,
+            'pro_price' => $pro_price,
+            'pro_info' => $pro_info,
+            'spl_price' => $spl_price
+        ]);
+
+        return view('admin.product.index', compact('products', 'category'));
+    }
 }
