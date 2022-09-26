@@ -53,6 +53,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
 
     Route::resource('product', ProductsController::class);
     Route::resource('category', CategoriesController::class);
+    Route::get(
+        'ProductEditForm/{id}',
+        [ProductsController::class, 'ProductEditForm']
+    )->name('ProductEditForm');
 });
 
 Route::group(['middleware' => 'auth'], function() {

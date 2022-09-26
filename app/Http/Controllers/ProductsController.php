@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller {
     public function index() {
+        $products = DB::table('categories')
+            ->rightJoin('products', 'products.category_id', '=', 'categories.id')
+            ->get();
+
+        //now we are fetching all products and categories
         $products = Product::all();
         return view('admin.product.index', compact('products'));
     }
