@@ -53,7 +53,9 @@ class ProductsController extends Controller {
        return view('product.show', compact($product));
     }
 
-    public function editProducts($id, Request $request){
+    public function update(Request $request){
+        $products = DB::table('products')->where('id', '=', $request->id)->get();
+
         $pro_id = $request->id;
         $pro_name = $request->pro_name;
         $category_id = $request->category_id;
@@ -71,6 +73,13 @@ class ProductsController extends Controller {
             'spl_price' => $spl_price
         ]);
 
-        return view('admin.product.index', compact('products', 'category'));
+        return view('admin.product.index', compact('products'));
+    }
+
+    public function ProductEditForm($id){
+        $products = Product::find($id);
+        $categories = Category::all();
+
+        return view('admin.product.editProducts', compact('products', 'categories'));
     }
 }

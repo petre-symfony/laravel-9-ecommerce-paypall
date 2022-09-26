@@ -33,7 +33,7 @@
                     <td style="width: 50px;">{{ $product->pro_name }}</td>
                     <td style="width: 50px;">{{ $product->pro_code }}</td>
                     <td style="width: 50px;">${{ $product->pro_price }}</td>
-                    <td style="width: 50px;">${{ $product->category_id }}</td>
+                    <td style="width: 50px;">{{ $product->category_id }}</td>
                     <td><a href="{{ route(
 	                          'ProductEditForm',
                               ['id' => $product->id]
