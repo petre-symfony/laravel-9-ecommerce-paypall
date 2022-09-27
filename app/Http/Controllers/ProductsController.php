@@ -82,4 +82,10 @@ class ProductsController extends Controller {
 
         return view('admin.product.editProducts', compact('products', 'categories'));
     }
+
+    public function imageEditForm($id) {
+        $product = Product::find($id);
+
+        return view('admin.product.ImageEditForm', compact('product'));
+    }
 }
