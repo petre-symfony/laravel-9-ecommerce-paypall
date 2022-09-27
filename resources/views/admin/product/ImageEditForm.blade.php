@@ -7,7 +7,7 @@
                 <div class="content-box-large">
                     <h1>Add Category</h1>
                     <div class="col-md-5 col-lg-10">
-                        {!! Form::open(['route' => 'editProImage', 'method' => 'POST', 'files' => true]) !!}
+                        {!! Form::open(['route' => 'update_image_product', 'method' => 'POST', 'files' => true]) !!}
                             <input type="hidden" name="id" class="form-control" value="{{ $product->id }}">
                             <input type="text" class="form-control" value="{{ $product->pro_name }}" readonly="readonly">
                             <br>

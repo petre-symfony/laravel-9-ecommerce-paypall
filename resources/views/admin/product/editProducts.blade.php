@@ -66,7 +66,7 @@
                     style="width: 200px;"
                 >
 
-                <p><a class="btn btn-info" href="{{ route('ImageEditForm', ['id' => $products->id]) }}">Change Image</a></p>
+                <p><a class="btn btn-info" href="{{ route('edit_image_product_form', ['id' => $products->id]) }}">Change Image</a></p>
             </div>
         </div>
     </main>
