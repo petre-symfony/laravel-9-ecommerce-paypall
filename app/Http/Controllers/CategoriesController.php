@@ -36,6 +36,7 @@ class CategoriesController extends Controller {
     }
 
     public function destroy($id) {
-
+        Category::find($id)->delete();
+        return redirect()->back();
     }
 }
