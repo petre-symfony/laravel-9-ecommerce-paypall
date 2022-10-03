@@ -15,6 +15,7 @@
                 <th>Product Price</th>
                 <th>Category Id</th>
                 <th>Update</th>
+                <th>Delete</th>
             </tr>
             </thead>
 
@@ -42,6 +43,11 @@
                         >
                         Edit
                     </a></td>
+                    {!! Form::open(['method' => 'DELETE', 'action' => [
+                        'App\Http\Controllers\ProductsController@destroy', $product->id
+                    ]]) !!}
+                    <td>{!! Form::submit('Delete Product', ['class' => 'btn btn-danger col-sm-6']) !!}</td>
+                    {!! Form::close() !!}
                 </tr>
                 @endforeach
             </tbody>
