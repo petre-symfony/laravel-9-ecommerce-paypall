@@ -109,4 +109,10 @@ class ProductsController extends Controller {
         Product::find($id)->delete();
         return redirect()->back();
     }
+
+    public function addProperty($id){
+        $products = Product::find($id);
+
+        return view('admin.product.addProperty', compact('products'));
+    }
 }
