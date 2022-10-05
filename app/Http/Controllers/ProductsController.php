@@ -122,7 +122,7 @@ class ProductsController extends Controller {
         $properties->pro_id = $request->pro_id;
         $properties->size = $request->size;
         $properties->color = $request->color;
-        $properties->p_price = $request->p_price;
+        $properties->pro_price = $request->p_price;
         $properties->save();
 
         return redirect()->back();

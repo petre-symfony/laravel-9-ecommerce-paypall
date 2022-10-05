@@ -25,7 +25,7 @@
                     <div class="col-md-5">
                         <b>Product Name:</b>
                         <select name="pro_id" class="form-control">
-                            <option value="{{ $product->id }}">{{ $products->pro_name }}</option>
+                            <option value="{{ $products->id }}">{{ $products->pro_name }}</option>
                         </select>
                         <br>
                         Size: <select name="size" class="form-control">
