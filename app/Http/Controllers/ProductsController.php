@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\ProductProperty;
 
 class ProductsController extends Controller {
     public function index() {
@@ -114,5 +115,16 @@ class ProductsController extends Controller {
         $products = Product::find($id);
 
         return view('admin.product.addProperty', compact('products'));
+    }
+
+    public function submitProperty(Request $request){
+        $properties = new ProductProperty();
+        $properties->pro_id = $request->pro_id;
+        $properties->size = $request->size;
+        $properties->color = $request->color;
+        $properties->p_price = $request->p_price;
+        $properties->save();
+
+        return redirect()->back();
     }
 }

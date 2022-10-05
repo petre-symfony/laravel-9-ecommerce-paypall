@@ -71,6 +71,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('edit_image_product/{id}', [ProductsController::class, 'imageEditForm'])->name('edit_image_product_form');
     Route::post('update_image_product', [ProductsController::class, 'updateImageProduct'])->name('update_image_product');
     Route::get('/add_property/{id}', [ProductsController::class, 'addProperty'])->name('add_property');
+    Route::put('/submit_property/{id}', [ProductsController::class, 'submitProperty'])->name('submit_property');
 });
 
 Route::group(['middleware' => 'auth'], function() {
