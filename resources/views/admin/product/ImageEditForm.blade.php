@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-    <section id="container">
+    <section id="container" class="col-lg-9">
         <section id="main-content">
             <section class="wrapper">
                 <div class="content-box-large">

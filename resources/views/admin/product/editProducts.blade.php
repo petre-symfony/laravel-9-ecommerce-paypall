@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+    <main class="col-sm-9 col-lg-9 ml-sm-auto col-md-10 pt-3" role="main">
         <h1>Products</h1>
 
         <div class="row">
@@ -59,6 +59,11 @@
             </div>
 
             <div class="col-md-3">
+                <div align="center">
+                    <a href="{{ route('add_property', $products->id) }}" class="btn btn-sm btn-info" style="margin: 5px;">
+                        Add Property
+                    </a>
+                </div>
                 <h1>Change Image</h1>
                 <img
                     src="{{ URL::asset('images/'.$products->image) }}"
