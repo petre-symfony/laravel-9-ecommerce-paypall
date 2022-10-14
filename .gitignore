@@ -16,3 +16,4 @@ yarn-error.log
 /.vscode
 /public/images
 /resources/views/front/paypal.blade.php
+/public/dist/js/vendor

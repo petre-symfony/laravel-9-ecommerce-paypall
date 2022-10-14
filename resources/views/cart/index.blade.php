@@ -1,5 +1,12 @@
 @extends('front.master')
 @section('content')
+    <script type="text/javascript" defer>
+        $(document).ready(function(){
+            $('#upCart').on('change keyup', function(){
+                alert('I am here');
+            });
+        })
+    </script>
     <?php if ($cartItems->isEmpty()) { ?>
         <section id="cart_items">
             <div class="container">
@@ -83,22 +90,19 @@
                                                 <p>${{$cartItem->price}}</p>
                                             </td>
                                             <td class="cart_quantity">
-                                                {!! Form::open([
-                                                     'url' => route('update_cart', ['id' => $cartItem->rowId]),
-                                                     'method' => 'put'
-                                                ])!!}
-                                                    <input type="hidden" name="proId" value="{{ $cartItem->id }}">
+                                                <input type="text" name="rowId" value="{{ $cartItem->rowId }}">
+                                                <input type="text" name="proId" value="{{ $cartItem->id }}">
 
-                                                    <input
-                                                        type="number" size="2" name="qty"
-                                                        value="{{ $cartItem->qty }}"
-                                                        id="upCart<?php echo $count?>"
-                                                        autocomplete="off" style="text-align: center; max-width: 50px"
-                                                        min="1" max="1000"
-                                                    >
+                                                <input
+                                                    type="number" size="2" name="qty"
+                                                    value="{{ $cartItem->qty }}"
+                                                    id="upCart"
+                                                    autocomplete="off" style="text-align: center; max-width: 50px"
+                                                    min="1" max="1000"
+                                                >
 
-                                                    <input type="submit" class="btn btn-primary" value="Update" style="margin:5px">
-                                                {!! Form::close() !!}
+                                                <input type="submit" class="btn btn-primary" value="Update" style="margin:5px">
+
                                             </td>
 
                                         <td class="cart_total">
