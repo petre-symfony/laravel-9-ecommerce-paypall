@@ -2,14 +2,17 @@
 @section('content')
     <script type="text/javascript" defer>
         $(document).ready(function(){
-            $('#upCart').on('change keyup', function(){
-                var newqty = $('#upCart').val();
-                var rowId = $('#rowId').val();
-                var proId = $('#proId').val();
+            <?php for($i=1;$i<20;$i++){ ?>
+            $('#upCart<?php echo $i; ?>').on('change keyup', function(){
+                var newqty = $('#upCart<?php echo $i; ?>').val();
+                var rowId = $('#rowId<?php echo $i; ?>').val();
+                var proId = $('#proId<?php echo $i; ?>').val();
 
                 alert(rowId);
             });
+            <?php } ?>
         })
+
     </script>
     <?php if ($cartItems->isEmpty()) { ?>
         <section id="cart_items">
@@ -62,7 +65,7 @@
 
                             </thead>
 
-                            <?php $count =1;?>
+                            <?php $count = 1;?>
                                 <tbody>
                                 @foreach($cartItems as $cartItem)
                                     <tr>
@@ -94,13 +97,13 @@
                                                 <p>${{$cartItem->price}}</p>
                                             </td>
                                             <td class="cart_quantity">
-                                                <input type="text" id="rowId" name="rowId" value="{{ $cartItem->rowId }}">
-                                                <input type="text" id="proId" name="proId" value="{{ $cartItem->id }}">
+                                                <input type="text" id="rowId<?php echo $count ?>" name="rowId" value="{{ $cartItem->rowId }}">
+                                                <input type="text" id="proId<?php echo $count ?>" name="proId" value="{{ $cartItem->id }}">
 
                                                 <input
                                                     type="number" size="2" name="qty"
                                                     value="{{ $cartItem->qty }}"
-                                                    id="upCart"
+                                                    id="upCart<?php echo $count ?>"
                                                     autocomplete="off" style="text-align: center; max-width: 50px"
                                                     min="1" max="1000"
                                                 >
