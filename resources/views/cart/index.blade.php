@@ -8,7 +8,19 @@
                 var rowId = $('#rowId<?php echo $i; ?>').val();
                 var proId = $('#proId<?php echo $i; ?>').val();
 
-                alert(rowId);
+                if(newqty <= 0){
+                    alert('enter only valid quantity');
+                } else {
+                    $.ajax({
+                        type: 'get',
+                        dataType: 'html',
+                        url: '<?php echo url('/update_cart)'?>/'+proId,
+                        data: "qty=" + newqty + "& rowId=" + rowId + "& proId=" + proId,
+                        success: function(response){
+                            console.log(response);
+                        }
+                    });
+                };
             });
             <?php } ?>
         })
