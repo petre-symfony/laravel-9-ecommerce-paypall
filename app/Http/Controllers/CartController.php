@@ -34,7 +34,7 @@ class CartController extends Controller{
 
         $rowId = $request->rowId; //for update
         Cart::update($rowId, $qty);
-        echo Cart::content(); //for display new data of cart
+        $cartItems = Cart::content(); //for display new data of cart
         /*
         $product = Product::find($proId);
         $stock = $product->stock;

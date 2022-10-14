@@ -18,6 +18,7 @@
                         data: "qty=" + newqty + "& rowId=" + rowId + "& proId=" + proId,
                         success: function(response){
                             console.log(response);
+                            $('#updateDiv').html(response);
                         }
                     });
                 }
@@ -109,8 +110,8 @@
                                                 <p>${{$cartItem->price}}</p>
                                             </td>
                                             <td class="cart_quantity">
-                                                <input type="text" id="rowId<?php echo $count ?>" name="rowId" value="{{ $cartItem->rowId }}">
-                                                <input type="text" id="proId<?php echo $count ?>" name="proId" value="{{ $cartItem->id }}">
+                                                <input type="hidden" id="rowId<?php echo $count ?>" name="rowId" value="{{ $cartItem->rowId }}">
+                                                <input type="hidden" id="proId<?php echo $count ?>" name="proId" value="{{ $cartItem->id }}">
 
                                                 <input
                                                     type="number" size="2" name="qty"
@@ -145,7 +146,7 @@
                                 </tbody>
                         </table>
                     </div>
-                    <!-- End of Updatediv</div> --></div>
+                </div><!-- End of Updatediv</div> -->
 
 
             </div>
