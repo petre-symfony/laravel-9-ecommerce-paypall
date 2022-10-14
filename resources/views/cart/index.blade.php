@@ -3,7 +3,11 @@
     <script type="text/javascript" defer>
         $(document).ready(function(){
             $('#upCart').on('change keyup', function(){
-                alert('I am here');
+                var newqty = $('#upCart').val();
+                var rowId = $('#rowId').val();
+                var proId = $('#proId').val();
+
+                alert(rowId);
             });
         })
     </script>
@@ -90,8 +94,8 @@
                                                 <p>${{$cartItem->price}}</p>
                                             </td>
                                             <td class="cart_quantity">
-                                                <input type="text" name="rowId" value="{{ $cartItem->rowId }}">
-                                                <input type="text" name="proId" value="{{ $cartItem->id }}">
+                                                <input type="text" id="rowId" name="rowId" value="{{ $cartItem->rowId }}">
+                                                <input type="text" id="proId" name="proId" value="{{ $cartItem->id }}">
 
                                                 <input
                                                     type="number" size="2" name="qty"
