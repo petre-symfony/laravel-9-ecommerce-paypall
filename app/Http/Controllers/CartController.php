@@ -35,6 +35,8 @@ class CartController extends Controller{
         $rowId = $request->rowId; //for update
         Cart::update($rowId, $qty);
         $cartItems = Cart::content(); //for display new data of cart
+
+        return view('cart.upCart', compact('cartItems'))->with('status', 'cart updated');
         /*
         $product = Product::find($proId);
         $stock = $product->stock;
