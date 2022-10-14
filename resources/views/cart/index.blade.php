@@ -14,13 +14,13 @@
                     $.ajax({
                         type: 'get',
                         dataType: 'html',
-                        url: '<?php echo url('/update_cart)'?>/'+proId,
+                        url: '<?php echo url('/update_cart') ?>/'+proId,
                         data: "qty=" + newqty + "& rowId=" + rowId + "& proId=" + proId,
                         success: function(response){
                             console.log(response);
                         }
                     });
-                };
+                }
             });
             <?php } ?>
         })

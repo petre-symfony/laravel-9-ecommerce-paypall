@@ -31,6 +31,11 @@ class CartController extends Controller{
     public function update(Request $request, $id) {
         $qty = $request->qty;
         $proId = $request->proId;
+
+        $rowId = $request->rowId; //for update
+        Cart::update($rowId, $qty);
+        echo Cart::content(); //for display new data of cart
+        /*
         $product = Product::find($proId);
         $stock = $product->stock;
 
@@ -43,5 +48,6 @@ class CartController extends Controller{
         }
         Cart::update($id, $request->qty);
         return back()->with('error', $msg);
+        */
     }
 }
