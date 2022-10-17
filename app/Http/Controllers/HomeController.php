@@ -73,4 +73,8 @@ class HomeController extends Controller {
 
         return back()->with('msg', 'Item Removed from Wishlist');
     }
+
+    public function selectSize(Request $request){
+        echo $request->proDum; //see it in console
+    }
 }
