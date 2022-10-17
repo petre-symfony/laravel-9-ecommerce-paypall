@@ -33,6 +33,15 @@
                                         </h2>
 
                                         <p><b>Availability: {{ $product->stock }} In Stock</b></p>
+                                        <?php $sizes = DB::table('product_property')
+                                            ->where('pro_id', $product->id)
+                                            ->get()
+                                        ?>
+                                        <select name="size" id="size">
+                                            @foreach($sizes as $size)
+                                            <option value="">{{ $size->size }}</option>
+                                            @endforeach
+                                        </select>
                                         <a href="{{
                                           route('add_item_to_cart', [
                                             'id' => $product->id
