@@ -1,6 +1,15 @@
 @extends('front.master')
 
 @section('content')
+    <script type="text/javascript" defer>
+        $(document).ready(function(){
+            $('#size').change(function(){
+                var size = $('#size').val();
+                var proDum = $('#proDum').val();
+                alert(proDum);
+            });
+        });
+    </script>
     <header>
         <div class="container align-vertical hero">
             <div class="row">
@@ -39,9 +48,10 @@
                                         ?>
                                         <select name="size" id="size">
                                             @foreach($sizes as $size)
-                                            <option value="">{{ $size->size }}</option>
+                                            <option>{{ $size->size }}</option>
                                             @endforeach
                                         </select>
+                                        <input type="hidden" value="<?php echo $product->id ?>" id="proDum">
                                         <a href="{{
                                           route('add_item_to_cart', [
                                             'id' => $product->id
