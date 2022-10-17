@@ -61,6 +61,7 @@
                                             @endforeach
                                         </select>
                                         <input type="hidden" value="<?php echo $product->id ?>" id="proDum">
+                                        <input type="text" value="<?php echo $product->pro_price; ?>" name="newPrice">
                                         <a href="{{
                                           route('add_item_to_cart', [
                                             'id' => $product->id

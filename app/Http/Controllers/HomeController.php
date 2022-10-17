@@ -85,7 +85,9 @@ class HomeController extends Controller {
         ;
 
         foreach($s_price as $sPrice) {
-            echo "US $" . $sPrice->pro_price;
+            echo "US $" . $sPrice->pro_price;?>
+            <input type="text" value='<?php echo $sPrice->pro_price ?>' name="newPrice"/>
+            <?php
         }
     }
 }
