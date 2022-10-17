@@ -13,7 +13,8 @@
                     url: '<?php echo url('/selectSize') ?>',
                     data: "size=" + size + "&proDum=" + proDum,
                     success: function (response) {
-                        console.log(response)
+                        console.log(response);
+                        $('#price').html(response);
                     }
                 });
             });
@@ -47,7 +48,9 @@
                                         <h2 class="product-title">
                                             <h2><?php echo ucwords($product->pro_name)?></h2>
                                             <h5>{{ $product->pro_info }}</h5>
-                                            <span id="price">${{ $product->pro_price }}</span>
+                                            <span id="price">${{ $product->pro_price }}
+                                                <input type="hidden" value="<?php echo $product->pro_price; ?>" name="newPrice">
+                                            </span>
                                         </h2>
 
                                         <p><b>Availability: {{ $product->stock }} In Stock</b></p>
@@ -61,7 +64,6 @@
                                             @endforeach
                                         </select>
                                         <input type="hidden" value="<?php echo $product->id ?>" id="proDum">
-                                        <input type="text" value="<?php echo $product->pro_price; ?>" name="newPrice">
                                         <a href="{{
                                           route('add_item_to_cart', [
                                             'id' => $product->id
