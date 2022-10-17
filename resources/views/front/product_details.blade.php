@@ -48,6 +48,7 @@
                                         <h2 class="product-title">
                                             <h2><?php echo ucwords($product->pro_name)?></h2>
                                             <h5>{{ $product->pro_info }}</h5>
+                                            <form action="{{ route('add_item_to_cart', ['id' => $product->id]) }}">
                                             <span id="price">${{ $product->pro_price }}
                                                 <input type="hidden" value="<?php echo $product->pro_price; ?>" name="newPrice">
                                             </span>
@@ -64,14 +65,12 @@
                                             @endforeach
                                         </select>
                                         <input type="hidden" value="<?php echo $product->id ?>" id="proDum">
-                                        <a href="{{
-                                          route('add_item_to_cart', [
-                                            'id' => $product->id
-                                          ]) }}"
-                                          class="add-to-cart btn btn-primary btn-sm"
-                                        >
-                                            Add to Cart<i class="fa fa-shopping-cart"></i>
-                                        </a>
+
+                                        <button class="btn btn-default cart" id="addToCart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Add to Cart
+                                        </button>
+                                        </form>
                                         <?php
                                             $wishData = DB::table('wishlist')
                                                 ->rightJoin('products', 'wishlist.pro_id', '=', 'products.id')

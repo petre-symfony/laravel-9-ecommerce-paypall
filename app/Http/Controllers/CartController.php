@@ -12,10 +12,15 @@ class CartController extends Controller{
         return view('cart.index', compact('cartItems'));
     }
 
-    public function addItem($id) {
-        echo $id;
+    public function addItem(Request $request, $id) {
         $product = Product::find($id);
-        Cart::add($id, $product->pro_name, 1, $product->pro_price, [
+
+        if(isset($request->newPrice)){
+            $price = $request->newPrice; //if size selected
+        } else {
+            $price = $request->pro_price; //default price
+        }
+        Cart::add($id, $product->pro_name, 1, $price, [
             'img' => $product->image,
             'stock' => $product->stock
         ]);
