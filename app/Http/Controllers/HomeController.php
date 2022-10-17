@@ -75,6 +75,17 @@ class HomeController extends Controller {
     }
 
     public function selectSize(Request $request){
-        echo $request->proDum; //see it in console
+        $proDum = $request->proDum;
+        $size = $request->size;
+
+        $s_price = DB::table('product_property')
+            ->where('pro_id', $proDum)
+            ->where('size', $size)
+            ->get()
+        ;
+
+        foreach($s_price as $sPrice) {
+            echo "US $" . $sPrice->pro_price;
+        }
     }
 }

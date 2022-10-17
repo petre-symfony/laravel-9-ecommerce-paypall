@@ -47,7 +47,7 @@
                                         <h2 class="product-title">
                                             <h2><?php echo ucwords($product->pro_name)?></h2>
                                             <h5>{{ $product->pro_info }}</h5>
-                                            <h2>${{ $product->spl_price }}</h2>
+                                            <span id="price">${{ $product->pro_price }}</span>
                                         </h2>
 
                                         <p><b>Availability: {{ $product->stock }} In Stock</b></p>
