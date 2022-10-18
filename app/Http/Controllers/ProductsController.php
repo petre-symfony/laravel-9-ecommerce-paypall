@@ -80,8 +80,9 @@ class ProductsController extends Controller {
     public function ProductEditForm($id){
         $products = Product::find($id);
         $categories = Category::all();
+        $prots = ProductProperty::all();
 
-        return view('admin.product.editProducts', compact('products', 'categories'));
+        return view('admin.product.editProducts', compact('products', 'categories', 'prots'));
     }
 
     public function imageEditForm($id) {
@@ -126,5 +127,17 @@ class ProductsController extends Controller {
         $properties->save();
 
         return redirect()->back();
+    }
+
+    public function editProperty(Request $request){
+        $uptProts = DB::table('product_property')
+            ->where('pro_id', $request->pro_id)
+            ->where('id', $request->id)
+            ->update($request->except('_token'));
+        if($uptProts){
+            return back()->with('msg', 'updated');
+        }else {
+            return back()->with('msg', 'check value again');
+        }
     }
 }

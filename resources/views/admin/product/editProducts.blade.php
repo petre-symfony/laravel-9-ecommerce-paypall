@@ -61,7 +61,7 @@
             <!-- Update attributes -->
 
                 <?php
-                    $prots = DB::table('product-property')
+                    $prots = DB::table('product_property')
                         ->where('pro_id', $products->id)
                         ->get();
                     if(count($prots) == 0){
