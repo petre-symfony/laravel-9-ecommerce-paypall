@@ -3,7 +3,11 @@
 @section('content')
     <script type="text/javascript" defer>
         $(document).ready(function(){
+            $('#amountDiv').hide();
+            $('#checkSale').show();
             $('#onSale').click(function (){
+                $('#amountDiv').show();
+                $('#checkSale').hide();
                 alert('test');
             });
         });
@@ -49,8 +53,8 @@
                         </div>
                         <div id="amountDiv">
                             <input type="checkbox" id="noSale">No <br>
-                            <input type="text" id="salePrice"> <br>
-                            <input type="submit" id="saveAmount">
+                            <input type="text" id="salePrice" size="12" placeholder="Sale Price"> <br>
+                            <button type="submit" id="saveAmount" class="btn btn-success">Save Amount</button>
                         </div>
                     </td>
                     <td><a href="{{ route(
