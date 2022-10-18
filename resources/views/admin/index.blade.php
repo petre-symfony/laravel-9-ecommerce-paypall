@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid col-lg-10">
     <div class="row">
 
 
