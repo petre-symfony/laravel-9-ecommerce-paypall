@@ -8,24 +8,24 @@
             $('#onSale').click(function (){
                 $('#amountDiv').show();
                 $('#checkSale').hide();
-            });
-            $('#noSale').click(function() {
-                $('#amountDiv').hide();
-                $('#checkSale').show();
 
-                var salePrice = $('#salePrice').val();
-                var pro_id = $('#pro_id').val();
                 $('#saveAmount').click(function(){
+                    var spl_price = $('#spl_price').val();
+                    var pro_id = $('#pro_id').val();
                     $.ajax({
                         type: 'get',
                         dataType: 'html',
                         url: '<?php echo url('/admin/addSale'); ?>',
-                        data: "salePrice=" + salePrice + "&pro_id=" + pro_id,
+                        data: "salePrice=" + spl_price + "&pro_id=" + pro_id,
                         success: function (response) {
                             console.log(response);
                         }
                     });
                 })
+            });
+            $('#noSale').click(function() {
+                $('#amountDiv').hide();
+                $('#checkSale').show();
             });
         });
     </script>
@@ -71,7 +71,7 @@
                         <div id="amountDiv">
                             <input type="hidden" id="pro_id" value="{{$product->id}}"/>
                             <input type="checkbox" id="noSale">No <br>
-                            <input type="text" id="salePrice" size="12" placeholder="Sale Price"> <br>
+                            <input type="text" id="spl_price" size="12" placeholder="Sale Price"> <br>
                             <button type="submit" id="saveAmount" class="btn btn-success">Save Amount</button>
                         </div>
                     </td>

@@ -142,7 +142,15 @@ class ProductsController extends Controller {
     }
 
     public function addSale(Request $request){
-        echo $request->salePrice;
+        $salePrice = $request->salePrice;
+        $pro_id = $request->pro_id;
+
+        DB::table('products')
+            ->where('id', $pro_id)
+            ->update(['spl_price' => $salePrice])
+        ;
+
+        echo 'added successfully';
     }
 }
 
