@@ -74,6 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     Route::get('/add_property/{id}', [ProductsController::class, 'addProperty'])->name('add_property');
     Route::put('/submit_property/{id}', [ProductsController::class, 'submitProperty'])->name('submit_property');
     Route::post('editProperty', [ProductsController::class, 'editProperty']);
+    Route::get('addSale', [ProductsController::class, 'addSale']);
 });
 
 Route::group(['middleware' => 'auth'], function() {

@@ -140,4 +140,10 @@ class ProductsController extends Controller {
             return back()->with('msg', 'check value again');
         }
     }
+
+    public function addSale(Request $request){
+        echo $request->salePrice;
+    }
 }
+
+

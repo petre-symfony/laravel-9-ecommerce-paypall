@@ -15,16 +15,17 @@
 
                 var salePrice = $('#salePrice').val();
                 var pro_id = $('#pro_id').val();
-
-                $.ajax({
-                    type: 'get',
-                    dataType: 'html',
-                    url: '<?php echo url('/addSale'); ?>',
-                    data: "salePrice=" + salePrice + "&pro_id=" + pro_id,
-                    success: function (response) {
-                        console.log(response);
-                    }
-                });
+                $('#saveAmount').click(function(){
+                    $.ajax({
+                        type: 'get',
+                        dataType: 'html',
+                        url: '<?php echo url('/admin/addSale'); ?>',
+                        data: "salePrice=" + salePrice + "&pro_id=" + pro_id,
+                        success: function (response) {
+                            console.log(response);
+                        }
+                    });
+                })
             });
         });
     </script>
