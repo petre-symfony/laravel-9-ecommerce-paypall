@@ -3,15 +3,17 @@
 @section('content')
     <script type="text/javascript" defer>
         $(document).ready(function(){
-            $('#amountDiv').hide();
-            $('#checkSale').show();
-            $('#onSale').click(function (){
-                $('#amountDiv').show();
-                $('#checkSale').hide();
+            <?php for($i=1; $i<60; $i++) { ?>
+            $('#amountDiv<?php echo $i?>').hide();
+            $('#checkSale<?php echo $i?>').show();
+            $('#onSale<?php echo $i?>').click(function (){
+                $('#noSale<?php echo $i ?>').prop("checked", false);
+                $('#amountDiv<?php echo $i?>').show();
+                $('#checkSale<?php echo $i?>').hide();
 
-                $('#saveAmount').click(function(){
-                    var spl_price = $('#spl_price').val();
-                    var pro_id = $('#pro_id').val();
+                $('#saveAmount<?php echo $i?>').click(function(){
+                    var spl_price = $('#spl_price<?php echo $i?>').val();
+                    var pro_id = $('#pro_id<?php echo $i?>').val();
                     $.ajax({
                         type: 'get',
                         dataType: 'html',
@@ -23,10 +25,12 @@
                     });
                 })
             });
-            $('#noSale').click(function() {
-                $('#amountDiv').hide();
-                $('#checkSale').show();
+            $('#noSale<?php echo $i?>').click(function() {
+                $('#amountDiv<?php echo $i?>').hide();
+                $('#checkSale<?php echo $i?>').show();
+                $('#onSale<?php echo $i ?>').prop("checked", false);
             });
+            <?php } ?>
         });
     </script>
     <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
@@ -49,6 +53,7 @@
             </thead>
 
             <tbody>
+                <?php $count = 1; ?>
                 @foreach($products as $product)
                 <tr>
                     <td style="width: 50px; border: 1px solid #333">
@@ -65,14 +70,14 @@
                     <td style="width: 50px;">${{ $product->pro_price }}</td>
                     <td style="width: 50px;">{{ $product->category_id }}</td>
                     <td>
-                        <div id="checkSale">
-                            <input type="checkbox" id="onSale">Yes
+                        <div id="checkSale<?php echo $count ?>">
+                            <input type="checkbox" id="onSale<?php echo $count ?>">Yes
                         </div>
-                        <div id="amountDiv">
-                            <input type="hidden" id="pro_id" value="{{$product->id}}"/>
-                            <input type="checkbox" id="noSale">No <br>
-                            <input type="text" id="spl_price" size="12" placeholder="Sale Price"> <br>
-                            <button type="submit" id="saveAmount" class="btn btn-success">Save Amount</button>
+                        <div id="amountDiv<?php echo $count ?>">
+                            <input type="hidden" id="pro_id<?php echo $count ?>" value="{{$product->id}}"/>
+                            <input type="checkbox" id="noSale<?php echo $count ?>">No <br>
+                            <input type="text" id="spl_price<?php echo $count ?>" size="12" placeholder="Sale Price"> <br>
+                            <button type="submit" id="saveAmount<?php echo $count ?>" class="btn btn-success">Save Amount</button>
                         </div>
                     </td>
                     <td><a href="{{ route(
@@ -89,6 +94,7 @@
                     <td>{!! Form::submit('Delete Product', ['class' => 'btn btn-danger col-sm-6']) !!}</td>
                     {!! Form::close() !!}
                 </tr>
+                <?php $count++; ?>
                 @endforeach
             </tbody>
         </table>
