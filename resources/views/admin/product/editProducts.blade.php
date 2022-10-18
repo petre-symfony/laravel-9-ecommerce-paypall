@@ -58,6 +58,27 @@
                 {!! Form::close() !!}
             </div>
 
+            <!-- Update attributes -->
+            <div class="content-box-large">
+                <table class="table table-responsive">
+                    <tr>
+                        <td>Size</td>
+                        <td>Color</td>
+                        <td>Price</td>
+                        <td>Update</td>
+                    </tr>
+                    <tr>
+                        <input type="hidden" name="pro_id" value="" size="6">
+                        <input type="hidden" name="id" value="" size="6">
+                        <td><input type="text" name="size" value="" size="6"></td>
+                        <td><input type="text" name="color" value="" size="15"></td>
+                        <td><input type="text" name="pro_price" value="" size="6"></td>
+                        <td colspan="3" align="right">
+                            <input type="submit" class="btn btn-success" value="Save" style="margin: -6px; color: #fff">
+                        </td>
+                    </tr>
+                </table>
+            </div><!-- end update attributes -->
             <div class="col-md-3">
                 <div align="center">
                     <a href="{{ route('add_property', $products->id) }}" class="btn btn-sm btn-info" style="margin: 5px;">
