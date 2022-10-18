@@ -1,6 +1,13 @@
 @extends('admin.master')
 
 @section('content')
+    <script type="text/javascript" defer>
+        $(document).ready(function(){
+            $('#onSale').click(function (){
+                alert('test');
+            });
+        });
+    </script>
     <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
         <h1>Products</h1>
 
@@ -10,10 +17,11 @@
             <tr>
                 <th>Image</th>
                 <th>Product Id</th>
-                <th>Product name</th>
+                <th>Product Name</th>
                 <th>Product Code</th>
                 <th>Product Price</th>
                 <th>Category Id</th>
+                <th>On Sale</th>
                 <th>Update</th>
                 <th>Delete</th>
             </tr>
@@ -35,6 +43,16 @@
                     <td style="width: 50px;">{{ $product->pro_code }}</td>
                     <td style="width: 50px;">${{ $product->pro_price }}</td>
                     <td style="width: 50px;">{{ $product->category_id }}</td>
+                    <td>
+                        <div id="checkSale">
+                            <input type="checkbox" id="onSale">Yes
+                        </div>
+                        <div id="amountDiv">
+                            <input type="checkbox" id="noSale">No <br>
+                            <input type="text" id="salePrice"> <br>
+                            <input type="submit" id="saveAmount">
+                        </div>
+                    </td>
                     <td><a href="{{ route(
 	                          'ProductEditForm',
                               ['id' => $product->id]
