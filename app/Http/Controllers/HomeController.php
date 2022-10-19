@@ -92,4 +92,10 @@ class HomeController extends Controller {
             <?php
         }
     }
+
+    public function newArrival(){
+        $products = DB::table('products')->where('new_arrival', 1)->paginate(6);
+
+        return view('front.shop', compact('products'));
+    }
 }

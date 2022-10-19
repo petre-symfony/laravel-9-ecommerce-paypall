@@ -43,6 +43,7 @@ Route::get('add_item_to_cart/{id}', [CartController::class, 'addItem'])->name('a
 Route::get('remove_item_from_cart/{id}', [CartController::class, 'destroy'])->name('remove_item_from_cart');
 Route::get('update_cart/{id}', [CartController::class, 'update'])->name('update_cart');
 Route::get('selectSize', [HomeController::class, 'selectSize']);
+Route::get('newArrival', [HomeController::class, 'newArrival']);
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
     Route::get('/', function() {
