@@ -75,6 +75,10 @@
                                             <option>{{ $size->size }}</option>
                                             @endforeach
                                         </select>
+                                        <br>
+                                        @if($product->new_arrival == 1)
+                                            <img src="{{ URL::asset('dist/img/product_details/new.jpg') }}" alt="...">
+                                        @endif
                                         <input type="hidden" value="<?php echo $product->id ?>" id="proDum">
 
                                         <button class="btn btn-default cart" id="addToCart">

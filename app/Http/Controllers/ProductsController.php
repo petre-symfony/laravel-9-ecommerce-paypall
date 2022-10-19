@@ -64,6 +64,11 @@ class ProductsController extends Controller {
         $pro_price = $request->pro_price;
         $pro_info = $request->pro_info;
         $spl_price = $request->spl_price;
+        if($request->new_arrival == null) {
+            $new_arrival = '1';
+        } else {
+            $new_arrival = $request->new_arrival;
+        }
 
         DB::table('products')->where('id', $pro_id)->update([
             'pro_name' => $pro_name,
@@ -71,7 +76,8 @@ class ProductsController extends Controller {
             'pro_code' => $pro_code,
             'pro_price' => $pro_price,
             'pro_info' => $pro_info,
-            'spl_price' => $spl_price
+            'spl_price' => $spl_price,
+            'new_arrival' => $new_arrival
         ]);
 
         return view('admin.product.index', compact('products'));
