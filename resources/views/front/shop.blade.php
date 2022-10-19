@@ -20,17 +20,31 @@
                 <div class="row">
                     @forelse($products as $product)
                     <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img src="{{ URL::asset('images/' . $product->image) }}" class="card-image" alt="Card image cap">
+                        <div class="card" style="width:30rem height: 20rem">
+                            <img src="{{ URL::asset('images/' . $product->image) }}" class="card-img" alt="Card image cap">
                             <div class="card-body">
-                                <p class="card-text">{{ $product->pro_name }}</p>
-
-
-                                <button class="btn btn-primary">
-                                    <a href="{{ route('product_details', ['id' => $product->id]) }}" class="add-to-cart">
-                                        View Product
-                                    </a>
-                                </button>
+                                <p id="price">
+                                    <h4 class="card-text iphone">
+                                        <a href="{{url('/product_details')}}/{{$product->id}}" style="width:30rem height: 20rem">
+                                            {{$product->pro_name}}
+                                        </a>
+                                    </h4>
+                                    @if(!isset($product->spl_price))
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="card-text">
+                                                ${{ $product->pro_price }}
+                                            </p>
+                                        </div>
+                                    @else
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p style="text-decoration: line-through; color: #333">
+                                                ${{ $product->pro_price }}
+                                            </p>
+                                            <img src="{{ URL::asset('dist/img/shop/sale.png') }}" alt="" style="width: 60px">
+                                            <p>${{ $product->spl_price }}</p>
+                                        </div>
+                                    @endif
+                                </p>
                                 <button type="button" class="btn btn-primary">
                                     <a href="{{ route('add_item_to_cart', ['id' => $product->id]) }}" class="add-to-cart">
                                         Add To Cart
