@@ -54,6 +54,12 @@
                         {!! Form::text('pro_info', null, ['class' => 'form-control']) !!}
                     </div>
 
+                    <div class="form-group">
+                        New Arrival: <p class="pull-right">
+                            <input type="checkbox" name="new_arrival" value="1">
+                        </p>
+                    </div>
+
                     {{ Form::submit('Update', ['class' => 'btn btn-default']) }}
                 {!! Form::close() !!}
             </div>
