@@ -29,7 +29,7 @@
                                             {{$product->pro_name}}
                                         </a>
                                     </h4>
-                                    @if(!isset($product->spl_price))
+                                    @if($product->spl_price == null)
                                         <div class="d-flex justify-content-between align-items-center">
                                             <p class="card-text">
                                                 ${{ $product->pro_price }}

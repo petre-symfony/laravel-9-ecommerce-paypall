@@ -49,8 +49,19 @@
                                             <h2><?php echo ucwords($product->pro_name)?></h2>
                                             <h5>{{ $product->pro_info }}</h5>
                                             <form action="{{ route('add_item_to_cart', ['id' => $product->id]) }}">
-                                            <span id="price">${{ $product->pro_price }}
-                                                <input type="hidden" value="<?php echo $product->pro_price; ?>" name="newPrice">
+                                            <span id="price">
+                                                @if($product->spl_price == null)
+                                                    <input type="hidden" value="<?php echo $product->pro_price; ?>" name="newPrice">
+                                                @else
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <input type="hidden" value="<?php echo $product->spl_price; ?>" name="newPrice">
+                                                        <p style="text-decoration: line-through; color: #333">
+                                                            ${{ $product->pro_price }}
+                                                        </p>
+                                                        <img src="{{ URL::asset('dist/img/shop/sale.png') }}" alt="" style="width: 60px">
+                                                        <p>${{ $product->spl_price }}</p>
+                                                    </div>
+                                                @endif
                                             </span>
                                         </h2>
 
